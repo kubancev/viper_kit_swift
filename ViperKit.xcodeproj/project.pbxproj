@@ -13,7 +13,6 @@
 		8428596F1FF507E300B85558 /* UIViewController+Swizzling.m in Sources */ = {isa = PBXBuildFile; fileRef = 8428596D1FF507E300B85558 /* UIViewController+Swizzling.m */; };
 		842859741FF5116700B85558 /* ModuleInput.h in Headers */ = {isa = PBXBuildFile; fileRef = 842859721FF5116700B85558 /* ModuleInput.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		842859781FF5119200B85558 /* ModuleOutput.h in Headers */ = {isa = PBXBuildFile; fileRef = 842859761FF5119200B85558 /* ModuleOutput.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		84644BC120AEC5A100072D13 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84644BC020AEC5A100072D13 /* Router.swift */; };
 		84A1524D1E71A04B0073EB38 /* ViperKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 84A1524B1E71A04B0073EB38 /* ViperKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
@@ -24,7 +23,6 @@
 		8428596D1FF507E300B85558 /* UIViewController+Swizzling.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Swizzling.m"; sourceTree = "<group>"; };
 		842859721FF5116700B85558 /* ModuleInput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ModuleInput.h; sourceTree = "<group>"; };
 		842859761FF5119200B85558 /* ModuleOutput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ModuleOutput.h; sourceTree = "<group>"; };
-		84644BC020AEC5A100072D13 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		84A152481E71A04B0073EB38 /* ViperKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ViperKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		84A1524B1E71A04B0073EB38 /* ViperKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViperKit.h; sourceTree = "<group>"; };
 		84A1524C1E71A04B0073EB38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -44,7 +42,6 @@
 		4454C47F1E74588D00A23AFF /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				84644BC020AEC5A100072D13 /* Router.swift */,
 				4454C4801E74592B00A23AFF /* TransitionHandler.swift */,
 				4454C48E1E745CB400A23AFF /* UIViewController+TransitionHandler.swift */,
 				842859721FF5116700B85558 /* ModuleInput.h */,
@@ -122,7 +119,7 @@
 		84A1523F1E71A04B0073EB38 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = Rizer;
 				TargetAttributes = {
 					84A152471E71A04B0073EB38 = {
@@ -164,7 +161,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84644BC120AEC5A100072D13 /* Router.swift in Sources */,
 				4454C48F1E745CB400A23AFF /* UIViewController+TransitionHandler.swift in Sources */,
 				8428596F1FF507E300B85558 /* UIViewController+Swizzling.m in Sources */,
 				4454C4811E74592B00A23AFF /* TransitionHandler.swift in Sources */,
@@ -188,6 +184,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -195,6 +192,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -250,6 +248,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -257,6 +256,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
