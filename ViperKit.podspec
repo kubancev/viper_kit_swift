@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "ViperKit"
-  s.version      = "1.0.0"
+  s.version      = "1.1.0"
   s.license = { :type => "MIT", :file => "LICENSE" }
   s.author       = { "BradburyLab" => "kubancev@bradburylab.com" }
   s.platform     = :ios
