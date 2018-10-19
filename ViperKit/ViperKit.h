@@ -2,8 +2,8 @@
 //  ViperKit.h
 //  ViperKit
 //
-//  Created by Ruslan on 09.03.17.
-//  Copyright © 2017 Rizer. All rights reserved.
+//  Created by Bradbury Lab on 09.03.17.
+//  Copyright © 2017 Bradbury Lab. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

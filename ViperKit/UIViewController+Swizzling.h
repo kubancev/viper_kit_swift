@@ -2,8 +2,8 @@
 //  UIViewController+Swizzling.h
 //  ViperKit
 //
-//  Created by Rizer on 28.12.2017.
-//  Copyright © 2017 Rizer. All rights reserved.
+//  Created by Bradbury Lab on 28.12.2017.
+//  Copyright © 2017 Bradbury Lab. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

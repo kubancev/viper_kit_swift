@@ -2,11 +2,9 @@
 //  UIViewController+Swizzling.m
 //  ViperKit
 //
-//  Created by Rizer on 28.12.2017.
-//  Copyright © 2017 Rizer. All rights reserved.
+//  Created by Bradbury Lab on 28.12.2017.
+//  Copyright © 2017 Bradbury Lab. All rights reserved.
 //
-
-#define moduleInputAssociatedObjectKey "~"
 
 #import "UIViewController+Swizzling.h"
 #import "ModuleInput.h"
@@ -14,38 +12,25 @@
 
 @implementation UIViewController (Swizzling)
 
-+(instancetype)alloc {
++ (instancetype)alloc {
     UIViewController* allocated = [super alloc];
     if (allocated) {
-        Class class = object_getClass(allocated);
-        
-        SEL originalSelector = @selector(prepareForSegue:sender:);
-        SEL swizzledSelector = @selector(viperKit_PrepareForSegue:sender:);
-        
-        Method originalMethod = class_getInstanceMethod(class, originalSelector);
-        Method swizzledMethod = class_getInstanceMethod(class, swizzledSelector);
-        
-        BOOL didAddMethod =
-        class_addMethod(class,
-                        originalSelector,
-                        method_getImplementation(swizzledMethod),
-                        method_getTypeEncoding(swizzledMethod));
-        if (didAddMethod) {
-            class_replaceMethod(class,
-                                swizzledSelector,
-                                method_getImplementation(originalMethod),
-                                method_getTypeEncoding(originalMethod));
-        }
+        static dispatch_once_t onceToken;
+        dispatch_once(&onceToken, ^{
+            Class class = object_getClass(allocated);
+            
+            SEL originalSelector = @selector(prepareForSegue:sender:);
+            Method originalMethod = class_getInstanceMethod(class, originalSelector);
+            IMP swizzledImplementation = (IMP)viperKit_PrepareForSegueSender;
+            
+            method_setImplementation(originalMethod, swizzledImplementation);
+        });
     }
     return allocated;
 }
 
--(NSString *)tokenId {
-    return @"UIViewController.prepareForSegue";
-}
-
 -(id<ModuleInput>)moduleInput {
-    id<ModuleInput> moduleInput = (id<ModuleInput>)objc_getAssociatedObject(self, moduleInputAssociatedObjectKey);
+    id<ModuleInput> moduleInput = (id<ModuleInput>)objc_getAssociatedObject(self, @selector(moduleInput));
     if (!moduleInput) {
         self.moduleInput = objc_getAssociatedObject(self, "delegate");
     }
@@ -53,12 +38,10 @@
 }
 
 -(void)setModuleInput:(id<ModuleInput>)moduleInput {
-    objc_setAssociatedObject(self, moduleInputAssociatedObjectKey, moduleInput, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    objc_setAssociatedObject(self, @selector(moduleInput), moduleInput, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
--(void)viperKit_PrepareForSegue:(UIStoryboardSegue*)segue
-                         sender:(id)sender {
-    
+void viperKit_PrepareForSegueSender(id self, SEL selector, UIStoryboardSegue * segue, id sender) {
     UIViewController* destinationViewController = segue.destinationViewController;
     if ([destinationViewController isKindOfClass:UINavigationController.class]) {
         destinationViewController = [((UINavigationController*)destinationViewController) topViewController];

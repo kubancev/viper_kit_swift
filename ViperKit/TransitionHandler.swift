@@ -2,8 +2,8 @@
 //  TransitionHandler.swift
 //  ViperKit
 //
-//  Created by Ruslan Bolataev on 11/03/2017.
-//  Copyright © 2017 Rizer. All rights reserved.
+//  Created by Bradbury Lab on 11/03/2017.
+//  Copyright © 2017 Bradbury Lab. All rights reserved.
 //
 
 public protocol TransitionHandler: class {
