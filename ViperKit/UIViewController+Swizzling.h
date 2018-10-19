@@ -12,7 +12,6 @@
 typedef void (^ConfigurationBlock)(id<ModuleInput> _Nullable moduleInput);
 
 @interface UIViewController (Swizzling)
-@property (nonatomic, strong, readonly) NSString*_Nonnull tokenId;
 @property (nonatomic, strong) id<ModuleInput>_Nullable moduleInput;
 
 @end
