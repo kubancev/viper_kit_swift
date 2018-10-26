@@ -13,14 +13,14 @@ extension UIViewController: TransitionHandler {
         performSegue(withIdentifier: segueIdentifier, sender: nil)
     }
     
-    public func openModule(_ segueIdentifier: String, configurationBlock: @convention(block) (ModuleInput?) -> ()) {
+    public func openModule(_ segueIdentifier: String, configurationBlock: @escaping @convention(block) (ModuleInput?) -> ()) {
         performSegue(withIdentifier: segueIdentifier, sender: configurationBlock)
     }
     
     public func closeCurrentModule(animated: Bool, completionHandler: (() -> Void)?) {
         let isInNavigationStack = parent is UINavigationController
         let hasManyControllersInStack = isInNavigationStack
-            ? (parent as! UINavigationController).childViewControllers.count > 1
+            ? (parent as! UINavigationController).children.count > 1
             : false
         
         if isInNavigationStack && hasManyControllersInStack {
@@ -29,7 +29,7 @@ extension UIViewController: TransitionHandler {
         } else if presentingViewController != nil {
             dismiss(animated: animated, completion: completionHandler)
         } else if view.superview != nil {
-            removeFromParentViewController()
+            removeFromParent()
             view.removeFromSuperview()
             completionHandler?()
         }
